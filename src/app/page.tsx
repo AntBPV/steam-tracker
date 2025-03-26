@@ -9,7 +9,7 @@ export default function Home() {
         which is the hard part of this project
       </h1>
       <h2 className="text-gray-400 font-medium text-lg">
-        If you don't see anything it's because there is nothing here to see!!
+        If you dont see anything its because there is nothing here to see!!
         (idiot)
       </h2>
     </main>
