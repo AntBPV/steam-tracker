@@ -1,9 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
+import { SteamApiResponse } from "../types/steam";
 
 interface SteamProfileSearchFormProps {
-  onProfileFound: (profileData: any) => void;
+  onProfileFound: (profileData: SteamApiResponse) => void;
 }
 
 export default function ProfileSearch({

@@ -80,7 +80,7 @@ export default function OwnedGamesList({ games }: OwnedGamesListProps) {
             className="bg-gray-700 p-3 rounded-md flex items-center space-x-4"
           >
             {game.img_icon_url && (
-              <img
+              <Image
                 src={`https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/apps/${game.appid}/${game.img_icon_url}.jpg`}
                 alt={`${game.name} icon`}
                 width={64}
