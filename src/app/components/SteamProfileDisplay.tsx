@@ -44,6 +44,11 @@ export default function SteamProfileDisplay({
     }
   };
 
+  const getLastLogoff = (lastLogoff: number): string => {
+    const date = new Date(lastLogoff * 1000);
+    return date.toLocaleString();
+  };
+
   return (
     <main className="max-w-md mx-auto p-5 bg-gray-600 rounded-md">
       <section className="steam-profile">
@@ -70,6 +75,7 @@ export default function SteamProfileDisplay({
         <section className="space-y-2 text-gray-200">
           <p>Steam Id: {profile.steamid}</p>
           <p>State: {getPersonaState(profile.personastate)}</p>
+          <p>Last Seen: {getLastLogoff(profile.lastlogoff)}</p>
         </section>
       </section>
     </main>

@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 
 interface SteamProfileSearchFormProps {
-  onProfileFound: (profile: any) => void;
+  onProfileFound: (profileData: any) => void;
 }
 
 export default function ProfileSearch({
@@ -33,11 +33,11 @@ export default function ProfileSearch({
 
       const data = await response.json();
 
-      if (data.response.players.length === 0) {
-        throw new Error("No profile with that Steam ID");
+      if (!data.playerSummaries?.response?.players?.length) {
+        throw new Error("No profile found");
       }
 
-      onProfileFound(data.response.players[0]);
+      onProfileFound(data);
     } catch (err) {
       setError(err instanceof Error ? err.message : "An unknown error ocurred");
     } finally {

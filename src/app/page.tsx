@@ -3,12 +3,22 @@
 import React, { useState } from "react";
 import ProfileSearch from "./components/ProfileSearch";
 import SteamProfileDisplay from "./components/SteamProfileDisplay";
+import OwnedGamesList from "./components/OwnedGamesList";
+import { Game, SteamProfile } from "./types/steam";
 
 export default function Home() {
-  const [profile, setProfile] = useState(null);
+  const [profile, setProfile] = useState<SteamProfile | null>(null);
+  const [ownedGames, setOwnedGames] = useState<Game[] | null>(null);
+  const [recentlyPlayed, setRecentlyPlayed] = useState(null);
 
-  const handleProfileFound = (foundProfile: any) => {
-    setProfile(foundProfile);
+  const handleProfileFound = (steamData: any) => {
+    const profile = steamData.playerSummaries?.response?.players[0];
+    const ownedGames = steamData.ownedGames?.response?.games || [];
+    const recentGames = steamData.recentlyPlayedGames?.response?.games;
+
+    setProfile(profile);
+    setOwnedGames(ownedGames);
+    setRecentlyPlayed(recentGames);
   };
 
   return (
@@ -16,6 +26,7 @@ export default function Home() {
       <ProfileSearch onProfileFound={handleProfileFound} />
 
       {profile && <SteamProfileDisplay profile={profile} />}
+      {ownedGames && <OwnedGamesList games={ownedGames} />}
     </main>
   );
 }
