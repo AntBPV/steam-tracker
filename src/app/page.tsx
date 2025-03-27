@@ -1,17 +1,32 @@
+"use client";
+
+import React, { useState } from "react";
+import ProfileSearch from "./components/ProfileSearch";
+import SteamProfileDisplay from "./components/SteamProfileDisplay";
+import OwnedGamesList from "./components/OwnedGamesList";
+import { Game, SteamProfile } from "./types/steam";
+
 export default function Home() {
+  const [profile, setProfile] = useState<SteamProfile | null>(null);
+  const [ownedGames, setOwnedGames] = useState<Game[] | null>(null);
+  const [recentlyPlayed, setRecentlyPlayed] = useState(null);
+
+  const handleProfileFound = (steamData: any) => {
+    const profile = steamData.playerSummaries?.response?.players[0];
+    const ownedGames = steamData.ownedGames?.response?.games || [];
+    const recentGames = steamData.recentlyPlayedGames?.response?.games;
+
+    setProfile(profile);
+    setOwnedGames(ownedGames);
+    setRecentlyPlayed(recentGames);
+  };
+
   return (
-    <main className="flex flex-col items-center justify-center bg-white w-screen h-screen">
-      <h1 className="text-black font-bold text-3xl">
-        New Project: Steam Tracker (pls kill me)
-      </h1>
-      <h1 className="text-black font-medium text-xl">
-        This thing uses Steam Web API to retrieve user data from their steamId,
-        which is the hard part of this project
-      </h1>
-      <h2 className="text-gray-400 font-medium text-lg">
-        If you dont see anything its because there is nothing here to see!!
-        (idiot)
-      </h2>
+    <main className="container mx-auto">
+      <ProfileSearch onProfileFound={handleProfileFound} />
+
+      {profile && <SteamProfileDisplay profile={profile} />}
+      {ownedGames && <OwnedGamesList games={ownedGames} />}
     </main>
   );
 }
