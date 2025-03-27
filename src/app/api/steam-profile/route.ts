@@ -4,7 +4,6 @@ export async function GET(request: NextRequest) {
   const STEAM_API_KEY = process.env.STEAM_API_KEY;
 
   const steamId = request.nextUrl.searchParams.get("steamId");
-  const appId = request.nextUrl.searchParams.get("appId") || "730";
 
   if (!STEAM_API_KEY) {
     return NextResponse.json(

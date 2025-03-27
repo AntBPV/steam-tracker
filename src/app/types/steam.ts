@@ -19,3 +19,16 @@ export interface SteamProfile {
   lastlogoff: number;
   commentpermission?: number;
 }
+
+export interface SteamApiResponse {
+  playerSummaries?: {
+    response: {
+      players: SteamProfile[];
+    };
+  };
+  ownedGames?: {
+    response: {
+      games: Game[];
+    };
+  };
+}
