@@ -6,6 +6,14 @@ export interface Game {
   img_logo_url: string;
 }
 
+export interface RecentGame {
+  appid: number;
+  name: string;
+  playtime_2weeks: number;
+  img_icon_url: string;
+  img_logo_url: string;
+}
+
 export interface SteamProfile {
   steamid: string;
   personaname: string;
@@ -29,6 +37,11 @@ export interface SteamApiResponse {
   ownedGames?: {
     response: {
       games: Game[];
+    };
+  };
+  recentlyPlayedGames?: {
+    response: {
+      games: RecentGame[];
     };
   };
 }

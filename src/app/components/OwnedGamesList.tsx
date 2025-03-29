@@ -1,13 +1,6 @@
 "use client";
 import React, { useState, useMemo } from "react";
-
-interface Game {
-  appid: number;
-  name: string;
-  playtime_forever: number;
-  img_icon_url: string;
-  img_logo_url: string;
-}
+import { Game } from "../types/steam";
 
 interface OwnedGamesListProps {
   games: Game[];
