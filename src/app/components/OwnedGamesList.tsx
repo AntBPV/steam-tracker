@@ -82,6 +82,14 @@ export default function OwnedGamesList({ games }: OwnedGamesListProps) {
             )}
             <span>
               <h3 className="text-white font-semibold">{game.name}</h3>
+              <a
+                href={`https://store.steampowered.com/app/${game.appid}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 hover:underline"
+              >
+                Go to Store Page
+              </a>
               <p className="text-gray-400">
                 Playtime: {formatPlaytime(game.playtime_forever)}
               </p>

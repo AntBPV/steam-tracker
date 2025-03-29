@@ -40,6 +40,14 @@ export default function RecentGamesList({
               />
               <span>
                 <h3 className="font-bold">{game.name}</h3>
+                <a
+                  href={`https://store.steampowered.com/app/${game.appid}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-500 hover:underline"
+                >
+                  Go to Store Page
+                </a>
                 <p className="text-sm text-gray-600">
                   {formatPlaytime(game.playtime_2weeks)} played
                 </p>
