@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import ProfileSearch from "./components/ProfileSearch";
+import Header from "./components/header";
 import SteamProfileDisplay from "./components/SteamProfileDisplay";
 import OwnedGamesList from "./components/OwnedGamesList";
 import RecentGamesList from "./components/RecentGamesList";
@@ -31,7 +31,7 @@ export default function Home() {
 
   return (
     <main className="container mx-auto">
-      <ProfileSearch onProfileFound={handleProfileFound} />
+      <Header onProfileFound={handleProfileFound} />
 
       {profile && <SteamProfileDisplay profile={profile} />}
       {ownedGames && <OwnedGamesList games={ownedGames} />}

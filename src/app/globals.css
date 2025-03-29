@@ -2,22 +2,34 @@
 
 @import "tailwindcss";
 
+@keyframes errorFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 :root {
   --background: hsl(210, 33%, 8%);
-  --foreground: #fff;
+  .error-animation {
+    animation: errorFadeIn 0.25s ease-out forwards;
+  }
 }
 
 @theme inline {
   --color-steam-txt: hsl(0, 0%, 95%);
   --color-steam-muted: hsl(213, 9%, 51%);
-
   --color-steam-general: hsl(210, 33%, 8%);
   --color-steam-header: hsl(216, 14%, 14%);
-  --color-steam-something: hsl(215, 17%, 23%);
+  --color-steam-searchbar: hsl(215, 17%, 23%);
   --color-steam-primary: hsl(204, 57%, 18%);
   --color-steam-secondary: hsl(224, 33%, 20%);
 
-  --color-steam-blue: hsl(202, 81%, 66%);
+  --color-steam-blue: hsl(202, 81%, 60%);
   --color-steam-blue-hover: hsl(224, 35%, 45%);
 
   --color-steam-green: hsl(80, 51%, 44%);
