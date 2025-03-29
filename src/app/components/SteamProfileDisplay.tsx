@@ -1,20 +1,7 @@
 "use client";
 
 import React from "react";
-
-interface SteamProfile {
-  steamid: string;
-  personaname: string;
-  profileurl: string;
-  avatar: string;
-  avatarmedium: string;
-  avatarfull: string;
-  personastate: number;
-  communityvisibilitystate: number;
-  profilestate: number;
-  lastlogoff: number;
-  commentpermission?: number;
-}
+import { SteamProfile } from "../types/steam";
 
 interface SteamProfileDisplayProps {
   profile: SteamProfile;

@@ -1,14 +1,6 @@
 "use client";
 import React, { useState, useMemo } from "react";
-import Image from "next/image";
-
-interface Game {
-  appid: number;
-  name: string;
-  playtime_forever: number;
-  img_icon_url: string;
-  img_logo_url: string;
-}
+import { Game } from "../types/steam";
 
 interface OwnedGamesListProps {
   games: Game[];
@@ -80,7 +72,7 @@ export default function OwnedGamesList({ games }: OwnedGamesListProps) {
             className="bg-gray-700 p-3 rounded-md flex items-center space-x-4"
           >
             {game.img_icon_url && (
-              <Image
+              <img
                 src={`https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/apps/${game.appid}/${game.img_icon_url}.jpg`}
                 alt={`${game.name} icon`}
                 width={64}
@@ -90,6 +82,14 @@ export default function OwnedGamesList({ games }: OwnedGamesListProps) {
             )}
             <span>
               <h3 className="text-white font-semibold">{game.name}</h3>
+              <a
+                href={`https://store.steampowered.com/app/${game.appid}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 hover:underline"
+              >
+                Go to Store Page
+              </a>
               <p className="text-gray-400">
                 Playtime: {formatPlaytime(game.playtime_forever)}
               </p>

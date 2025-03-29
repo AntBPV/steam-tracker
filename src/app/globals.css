@@ -1,26 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
 @import "tailwindcss";
 
+@keyframes errorFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: hsl(210, 33%, 8%);
+  .error-animation {
+    animation: errorFadeIn 0.25s ease-out forwards;
+  }
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-steam-txt: hsl(0, 0%, 95%);
+  --color-steam-muted: hsl(213, 9%, 51%);
+  --color-steam-general: hsl(210, 33%, 8%);
+  --color-steam-header: hsl(216, 14%, 14%);
+  --color-steam-searchbar: hsl(215, 17%, 23%);
+  --color-steam-primary: hsl(204, 57%, 18%);
+  --color-steam-secondary: hsl(224, 33%, 20%);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-steam-blue: hsl(202, 81%, 60%);
+  --color-steam-blue-hover: hsl(224, 35%, 45%);
+
+  --color-steam-green: hsl(80, 51%, 44%);
+  --color-steam-red: hsl(7, 50%, 46%);
+  --color-steam-yellow: hsl(50, 34%, 46%);
+
+  --font-steam: "Noto Sans", sans-serif;
 }
 
 body {
   background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Noto Sans", sans-serif;
 }
