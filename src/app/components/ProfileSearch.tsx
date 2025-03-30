@@ -56,7 +56,7 @@ export default function ProfileSearch({
             onChange={(e) => setSteamId(e.target.value)}
             placeholder="Enter a Steam ID"
             className="flex-grow p-2 border rounded-l-md border-steam-muted placeholder-steam-muted bg-steam-searchbar text-steam-txt
-            focus:outline-none
+            focus:outline-none focus:border-steam-txt
             "
           />
           <button

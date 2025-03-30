@@ -37,32 +37,37 @@ export default function SteamProfileDisplay({
   };
 
   return (
-    <main className="max-w-md mx-auto p-5 bg-gray-600 rounded-md">
-      <section className="steam-profile">
-        <section className="flex items-center space-x-4 mb-4">
+    <main className="max-w-xl mx-auto p-5 rounded-md bg-gradient-to-r from-steam-primary to-steam-secondary to-75% mt-4">
+      <section className="flex">
+        <span className="w-1/3 pr-4">
           <img
             src={profile.avatarfull}
             alt={`${profile.personaname}'s avatar`}
-            className="w-16 h-16 rounded-full"
+            className="w-full rounded-full"
           />
-          <span>
-            <h2 className="text-xl font-bold text-white">
+        </span>
+
+        <section className="w-2/3">
+          <span className="mb-4">
+            <h2 className="text-2xl font-bold text-steam-txt">
               {profile.personaname}
             </h2>
-            <a
-              href={profile.profileurl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-500 hover:underline"
-            >
-              Go to Profile
-            </a>
+            <p className="text-sm text-steam-muted">{profile.steamid}</p>
           </span>
-        </section>
-        <section className="space-y-2 text-gray-200">
-          <p>Steam Id: {profile.steamid}</p>
-          <p>State: {getPersonaState(profile.personastate)}</p>
-          <p>Last Seen: {getLastLogoff(profile.lastlogoff)}</p>
+
+          <a
+            href={profile.profileurl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-lg font-medium text-steam-blue hover:underline block mb-3"
+          >
+            Go to profile
+          </a>
+
+          <span className="space-y-2 text-steam-txt">
+            <p>State: {getPersonaState(profile.personastate)}</p>
+            <p>Last Connection: {getLastLogoff(profile.lastlogoff)}</p>
+          </span>
         </section>
       </section>
     </main>

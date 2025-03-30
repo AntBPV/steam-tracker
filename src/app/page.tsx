@@ -30,12 +30,24 @@ export default function Home() {
   };
 
   return (
-    <main className="container mx-auto">
+    <main className="container mx-auto custom-scrollbar">
       <Header onProfileFound={handleProfileFound} />
 
       {profile && <SteamProfileDisplay profile={profile} />}
-      {ownedGames && <OwnedGamesList games={ownedGames} />}
-      {recentlyPlayed && <RecentGamesList recentlyPlayed={recentlyPlayed} />}
+      {(ownedGames || recentlyPlayed) && (
+        <section className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4 items-start">
+          {ownedGames && (
+            <span className="w-full">
+              <OwnedGamesList games={ownedGames} />
+            </span>
+          )}
+          {recentlyPlayed && (
+            <span className="w-full">
+              <RecentGamesList recentlyPlayed={recentlyPlayed} />
+            </span>
+          )}
+        </section>
+      )}
     </main>
   );
 }
