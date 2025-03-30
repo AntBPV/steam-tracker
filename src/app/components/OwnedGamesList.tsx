@@ -36,7 +36,7 @@ export default function OwnedGamesList({ games }: OwnedGamesListProps) {
   return (
     <main className="bg-steam-header p-4 rounded-md">
       <h2 className="text-2xl text-steam-txt text-center font-bold mb-4 ">
-        All User's Games
+        All Users Games
       </h2>
       <section className="flex flex-col sm:flex-row justify-between items-center gap-2 mb-4">
         <input
