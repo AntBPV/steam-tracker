@@ -48,15 +48,17 @@ export default function RecentGamesList({
                 alt={`${game.name} icon`}
                 width={64}
                 height={64}
-                className="rounded"
+                className="rounded flex-shrink-0"
               />
-              <span>
-                <h3 className="text-steam-txt font-semibold">{game.name}</h3>
+              <span className="flex flex-col min-w-0">
+                <h3 className="text-steam-txt font-semibold truncate">
+                  {game.name}
+                </h3>
                 <a
                   href={`https://store.steampowered.com/app/${game.appid}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-steam-blue hover:underline"
+                  className="text-steam-blue hover:underline block"
                 >
                   Go to Store Page
                 </a>
