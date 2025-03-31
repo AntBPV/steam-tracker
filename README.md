@@ -1,6 +1,8 @@
 # 🕹️🎮 Steam Tracker 🎮🕹️ #
 
 Steam Tracker is a website developed in Next.js and powered by the Vercel cloud service. The application uses the Steam Web API, officially distributed by Valve, to retrieve user data about the games they have recently played and their total playtime. The amount of information provided by Steam's official API allows this project to scale significantly.
+
+**Test it Out using my own Steam Id: 76561198800380938**
 ## Features ##
 
 >🔍 **Search by ID:** Find any profile you want using their Steam ID. 
